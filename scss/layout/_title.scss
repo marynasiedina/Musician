@@ -1,0 +1,55 @@
+.title {
+  color: #000;
+  text-align: center;
+  margin: 150px 0;
+
+  @media (max-width: $mobile) {
+    margin: 100px 0 50px;
+  }
+
+  &__caption {
+    font: 51px $dosis;
+    letter-spacing: 5.9px;
+    text-transform: uppercase;
+    margin-bottom: 45px;
+
+    @media (min-width: $mobile-portrait) and (max-width: $mobile) {
+      font-size: 35px;
+    }
+
+    @media (max-width: $mobile-portrait) {
+      font-size: 32px;
+    }
+
+    &-text {
+      position: relative;
+      z-index: 1;
+
+      &::before {
+        @include size(calc(100% + 60px), 2px);
+        @include pos($l: -30px, $t:50%, $z: -1);
+        content: "";
+        background: #000;
+
+        @media (max-width: $mobile-portrait) {
+          display: none;
+        }
+      }
+
+      &--red {
+        color: #916352;
+      }
+    }
+  }
+
+  &__text {
+    color: $grey;
+    line-height: 24px;
+    padding: 0 20%;
+
+    @media (max-width: $mobile) {
+      padding: 0;
+    }
+  }
+}
+

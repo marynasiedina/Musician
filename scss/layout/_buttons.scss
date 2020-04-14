@@ -1,0 +1,107 @@
+.button-colored {
+  margin-top: 25px;
+  @include size(200px, 55px);
+  text-align: center;
+  padding: 0 15px;
+  text-transform: uppercase;
+  color: #000;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 55px;
+  text-decoration: none;
+  display: block;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+
+  @media (max-width: $mobile) {
+    margin: 40px auto 0;
+  }
+
+  &--var-1 {
+    background-image: url('../images/btn-1.jpg');
+    color: #fff;
+  }
+
+  &--var-2 {
+    background-image: url('../images/btn-2.jpg');
+  }
+
+  &--var-3 {
+    background-image: url('../images/btn-3.jpg');
+  }
+
+  &::before {
+    @include pos($l: -50px, $t:0);
+    @include size(0, 100%);
+    content: "";
+    background: $hover;
+    transition: .8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    opacity: .6;
+  }
+
+  &:hover {
+    &::before {
+      width: calc(100% + 30px);
+    }
+  }
+
+  &__text {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.button-arrow {
+  @include size(200px, 55px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border: 1px solid #00000070;
+  transition: .5s;
+  color: #000;
+
+  @media (max-width: $mobile) {
+    width: 170px;
+    font-weight: 700;
+  }
+
+  &__text {
+    margin-right: 10px;
+  }
+
+  &__icon {
+    @include size(5px, 10px);
+    transition: .5s;
+    position: relative;
+    top: 1.5px;
+  }
+
+  &:hover {
+    background: $hover;
+    border-color: $hover;
+    color: #fff;
+
+    .button-arrow__icon {
+      fill: currentColor;
+      animation: back-arrow .9s ease-in-out forwards;
+    }
+  }
+}
+
+@keyframes back-arrow {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: 20px;
+    transform: scale(-1, 1.5);
+  }
+  100% {
+    left: 0;
+    transform: scaleX(-1)
+  }
+}

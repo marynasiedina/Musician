@@ -1,0 +1,189 @@
+.header {
+  background: url('../images/header-bg.jpg') no-repeat top center;
+  background-size: cover;
+  height: 100vh;
+  @include f-center ();
+  
+  &__block {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+@mixin posit {
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  left: 0;
+}
+
+.navigation {
+  width: 100%;
+  background: rgba( 0, 8, 12, .1);
+  overflow: hidden;
+  position: fixed;
+  @include pos(fixed, $t:0, $l:0, $z:99 );
+
+  &__menu {
+    @include pos(fixed, $t:15px, $r:3%, $z:99);
+    background: rgba (255, 255, 255, .9);
+    padding: 10px;
+    transition: .3s;
+    
+    @media (min-width: $desktop) {
+      display: none;
+    }
+  }
+
+  &__input {
+    display: none;
+
+    &:checked {
+      + .navigation__menu {
+        width: 56px;
+        right: 250px;
+
+        .burger-menu {
+          span {
+            display: none;
+          }
+
+          &::before {
+            transform: rotate(47deg);
+          }
+
+          &::after {
+            transform: rotate(-47deg);
+          }
+        }
+      }
+      ~ .menu {
+        right: 0;
+      }
+    }
+  }
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+
+  @media (max-width: $desktop) {
+    @include pos(fixed, $z: 1, $t: 0, $r: -250px);
+    @include size (250px, 100%);
+    background: rgba (255, 255, 255, .9);
+    transition: .3s;
+    padding-top: 25px;
+    display: block;
+  }
+  
+
+  &__item {
+    text-transform: uppercase;
+    margin: 0 20px;
+    text-align: center;
+    font-size: 17px $dosis;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: #606060;
+    padding: 25px 0;
+    position: relative;
+    display: inline-block;
+    transition: .3s;
+
+    @media (max-width: $desktop) {
+      display: block;
+      padding: 20px;
+      font-size: 18px;
+    }
+
+    &::before {
+      @include size(calc(100% + 4px), 2px);
+      @include pos($b: -30px, $l: -2px);
+      background: #000;
+      transition: .3s;
+      content: '';
+      
+      @media (max-width: $desktop) {
+        display: none;
+      }
+    }
+
+    &:hover {
+      color: #000;
+
+      &::before {
+        bottom: 10px;
+      }
+    }
+  }
+}
+
+.burger-menu {
+  @mixin line($top: 0) {
+    background: #bebebe;
+    border-radius: 3px;
+    position: absolute;
+    top: $top;
+    transition: .3s;
+    @include size( 100%, 5px)
+  }
+
+  @include size (50px, 40px);
+  display: block;
+  position: relative;
+
+  @media (min-width: $desktop) {
+    display: none;
+  }
+
+  span {
+  display: block;
+  transform: translateY(-50%);
+  @include line(50%);
+  }
+
+  &::before {
+    @include line();
+    content: '';
+    transform-origin: 0 0;
+  }
+
+  &::after {
+    @include line(calc(100% - 5px));
+    content: '';
+    transform-origin: 0 100%;
+  }
+}
+
+.scroll {
+  text-decoration: none;
+  color: #fff;
+  margin-top: 25px;
+  font-size: 35px;
+  position: relative;
+  top: 0;
+  left: 5px;
+  transition: .3s;
+  animation: scroll-arrow 1.5s ease-in-out infinite;
+  
+
+  &:hover {
+    color: $hover;
+  }
+}
+
+@keyframes scroll-arrow {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: 20px;
+  }
+  100% {
+    top: 0;
+  }
+}
