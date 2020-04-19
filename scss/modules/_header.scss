@@ -11,18 +11,10 @@
   }
 }
 
-@mixin posit {
-  position: fixed;
-  z-index: 99;
-  top: 0;
-  left: 0;
-}
-
 .navigation {
   width: 100%;
   background: rgba( 0, 8, 12, .1);
   overflow: hidden;
-  position: fixed;
   @include pos(fixed, $t:0, $l:0, $z:99 );
 
   &__menu {
@@ -43,7 +35,6 @@
       + .navigation__menu {
         width: 56px;
         right: 250px;
-
         .burger-menu {
           span {
             display: none;

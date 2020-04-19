@@ -1,0 +1,35 @@
+.concert-tours {
+  background: url('../images/concert-tours.png') no-repeat bottom center;
+  padding-bottom: 250px;
+  padding-top: 1px;
+  @media(max-width: $mobile-portrait) {
+    background: url('../images/concert-tours-mb.png') no-repeat bottom center;
+    background-size: contain;
+    padding-bottom: 50px;
+  }
+}
+
+.concert {
+  margin-top: 300px;
+  @media(max-width: $mobile-portrait) {
+    margin-top: 100px;
+  }
+  &__title {
+    font-size: 23px;
+    line-height: 25px;
+    letter-spacing: .2px;
+    margin-bottom: 30px;
+    color: #000;
+  }
+  
+  &__description {
+    line-height: 25px;
+    margin-bottom: 55px;
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}

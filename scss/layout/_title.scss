@@ -39,6 +39,14 @@
       &--red {
         color: #916352;
       }
+
+      &--turquoise {
+        color: #000;
+        background: linear-gradient(to top, #62a2ad, #8dbab3);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
     }
   }
 
