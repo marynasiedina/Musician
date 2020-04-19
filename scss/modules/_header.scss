@@ -68,6 +68,9 @@
     padding-top: 25px;
     display: block;
   }
+  @media (max-width: $mobile) {
+  background-color: #f5f6f6;
+  }
   
 
   &__item {
