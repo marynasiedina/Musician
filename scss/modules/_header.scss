@@ -26,6 +26,10 @@
     @media (min-width: $desktop) {
       display: none;
     }
+
+    @media (max-width: $mobile) {
+      overflow: visible;
+    }
   }
 
   &__input {

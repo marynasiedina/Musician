@@ -426,6 +426,12 @@ body {
   }
 }
 
+@media (max-width: 767px) {
+  .navigation__menu {
+    overflow: visible;
+  }
+}
+
 .navigation__input {
   display: none;
 }
