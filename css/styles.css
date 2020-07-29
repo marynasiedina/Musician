@@ -409,6 +409,12 @@ body {
   z-index: 99;
 }
 
+@media (max-width: 767px) {
+  .navigation {
+    overflow: visible;
+  }
+}
+
 .navigation__menu {
   position: fixed;
   top: 15px;
@@ -423,12 +429,6 @@ body {
 @media (min-width: 1024px) {
   .navigation__menu {
     display: none;
-  }
-}
-
-@media (max-width: 767px) {
-  .navigation__menu {
-    overflow: visible;
   }
 }
 

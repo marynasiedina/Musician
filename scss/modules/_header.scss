@@ -17,6 +17,10 @@
   overflow: hidden;
   @include pos(fixed, $t:0, $l:0, $z:99 );
 
+  @media (max-width: $mobile) {
+    overflow: visible;
+  }
+
   &__menu {
     @include pos(fixed, $t:15px, $r:3%, $z:99);
     background: rgba (255, 255, 255, .9);
@@ -25,10 +29,6 @@
     
     @media (min-width: $desktop) {
       display: none;
-    }
-
-    @media (max-width: $mobile) {
-      overflow: visible;
     }
   }
 
